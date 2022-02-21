@@ -16,7 +16,7 @@ Yellow = The letter is in the word, but not in the right place
 
 Dark grey = The letter is not in the word 
 
-After the game has finished, you can always play again by clicking the 'Replay' button
+After the game has finished, you can play again by clicking the 'Replay' button
 
 Have fun WordNerd (glasses emoji)!
 
