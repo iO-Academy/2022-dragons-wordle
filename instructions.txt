@@ -1,0 +1,22 @@
+Instructions for WordNerd
+
+Guess the 5 letter word!
+
+You have 6 attempts to guess the word correctly.
+
+Enter your guess from the keypad or your keyboard letters, then press 'submit'.
+
+Each guess must be 5 letters long, with no numbers or spaces.
+
+Each tile will change to reflect the accuracy of your guess.
+
+Green = The letter is in the right place
+
+Yellow = The letter is in the word, but not in the right place 
+
+Dark grey = The letter is not in the word 
+
+After the game has finished, you can always play again by clicking the 'Replay' button
+
+Have fun WordNerd (glasses emoji)!
+
