@@ -4,11 +4,11 @@ Guess the 5 letter word!
 
 You have 6 attempts to guess the word correctly.
 
-Enter your guess from the keypad or your keyboard letters, then press 'submit'.
+Enter your guess from the virtual keypad or your keyboard letters, then press 'submit'.
 
 Each guess must be 5 letters long, with no numbers or spaces.
 
-Each tile will change to reflect the accuracy of your guess.
+Each tile will change colour to reflect the accuracy of your guess.
 
 Green = The letter is in the right place
 
