@@ -8,12 +8,31 @@
     <link rel="shortcut icon" type="image/jpg" href="Nerd Emoji With Glasses.png"/>
     <link href= "normalize.css" type="text/css" rel="stylesheet"/>
     <meta name="viewport" content="width=device-width">
+    <script src="index.js" defer></script>
     <link href="styles.css" rel="stylesheet" type="text/css" />
     <title>Word Nerd</title>
 </head>
 <body>
     <nav>
         <button id="instructions">?</button>
+        <div class="overlay">
+            <div class="modal">
+                <button class="closeBtn">&times;</button>
+                <h1>Instructions for WordNerd</h1>
+                <ul>
+                    <li>Guess the 5 letter word!</li>
+                    <li>You have 6 attempts to guess the word correctly.</li>
+                    <li>Enter your guess from the virtual keypad or your keyboard letters, then press 'submit'.</li>
+                    <li>Each guess must be 5 letters long, with no numbers or spaces.</li>
+                    <li>Each tile will change colour to reflect the accuracy of your guess.</li>
+                    <li>Green = The letter is in the right place</li>
+                    <li>Yellow = The letter is in the word, but not in the right place</li>
+                    <li>Dark grey = The letter is not in the word</li>
+                    <li>After the game has finished, you can play again by clicking the 'Replay' button</li>
+                    <li>Have fun WordNerd &#129299;!</li>
+                </ul>
+            </div>
+        </div>
     </nav>
     <main>
         <div class="title"><h1>W&#129299RD NERD</h1></div>

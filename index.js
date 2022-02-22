@@ -1,19 +1,19 @@
-let modal = document.querySelector('.overlay')
+let index = document.querySelector('.overlay')
 let modalClose = document.querySelector('.closeBtn')
-let instructionsBtn = document.querySelector('.instructions')
+let instructionsBtn = document.getElementById('instructions')
 
 instructionsBtn.addEventListener('click', (e) => {
-    modal.style.display = 'flex';
+    index.style.display = 'flex';
     console.log('first')
 })
 
 modalClose.addEventListener('click', (e) => {
-    modal.style.display = 'none'
+    index.style.display = 'none'
     console.log('third')
 })
 
 window.addEventListener('click', (e) => {
-    if (e.target == modal) {
-        modal.style.display = "none";
+    if (e.target == index) {
+        index.style.display = "none";
     }
 })
