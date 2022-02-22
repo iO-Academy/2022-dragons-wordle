@@ -4,12 +4,10 @@ const instructionsBtn = document.getElementById('instructions')
 
 instructionsBtn.addEventListener('click', (e) => {
     index.style.display = 'flex';
-    console.log('first')
 })
 
 modalClose.addEventListener('click', (e) => {
     index.style.display = 'none'
-    console.log('third')
 })
 
 window.addEventListener('click', (e) => {
