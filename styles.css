@@ -2,14 +2,63 @@
     box-sizing: border-box;
 }
 
+:root {
+    --generalFont:'Dosis', sans-serif;
+    --letterFont:'Secular One', sans-serif;
+    --green: #47B863;
+    --yellow: #F4EB47;
+    --lightGrey: #C6C6C6;
+    --darkGrey: #595959;
+}
+
+/*to use :root, define the property as normal, then after the colon, write var(--generalFont); for example*/
 
 html {
     font-size: 62.5%;
     scroll-behavior: smooth;
-    font-family: 'Dosis', sans-serif;
-    font-family: 'Secular One', sans-serif;
 }
 
-body {
-
+main {
+    display: flex;
+    justify-content: center;
 }
+
+nav {
+    padding: 2rem 3rem 0 2rem;
+    display: flex;
+    justify-content: flex-end;
+}
+
+
+#instructions {
+    font-family: var(--generalFont);
+    font-size: 2rem;
+    border-radius: 50%;
+    border-color: var(--lightGrey);
+    border-style: solid;
+    background-color: #FFFFFF;
+    width: 3rem;
+    height: 3rem;
+}
+
+
+.title {
+    width: 80vw;
+    display: flex;
+    justify-content: center;
+}
+
+
+.title h1 {
+    font-family: var(--generalFont);
+    font-size: 4rem;
+}
+
+
+@media only screen and (min-width: 800px){
+    .title h1 {
+        font-size: 6rem;
+    }
+}
+
+
