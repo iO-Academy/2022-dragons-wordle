@@ -27,6 +27,13 @@ main {
     margin: 0 auto;
 }
 
+.letterTiles {
+    height: 250px;
+    background-color: blue;
+    width: 90%;
+    margin: 5px;
+}
+
 nav {
     padding: 2rem 3rem 0 2rem;
     display: flex;
@@ -64,6 +71,8 @@ nav {
     width: 80%;
     margin: 0 auto;
     max-width: 800px;
+    osition: absolute;
+    bottom: 5%;
 }
 
 .keypadRow {
@@ -158,6 +167,22 @@ nav {
     font-size: 1.7rem;
     list-style: none;
     padding-bottom: 7px;
+}
+
+.modal p {
+    display: inline;
+}
+
+.correct {
+    color: var(--green);
+}
+
+.rightLetter {
+    color: var(--yellow);
+}
+
+.wrongLetter {
+    color: var(--darkGrey);
 }
 
 .wordInput {
