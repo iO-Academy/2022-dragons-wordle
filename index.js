@@ -1,6 +1,6 @@
-let index = document.querySelector('.overlay')
-let modalClose = document.querySelector('.closeBtn')
-let instructionsBtn = document.getElementById('instructions')
+const index = document.querySelector('.overlay')
+const modalClose = document.querySelector('.closeBtn')
+const instructionsBtn = document.getElementById('instructions')
 
 instructionsBtn.addEventListener('click', (e) => {
     index.style.display = 'flex';
