@@ -95,6 +95,67 @@ nav {
     margin: auto;
 }
 
+
+
+.wordInput {
+    height: 70px;
+    width: 70%;
+    margin: 0 auto 25px auto;
+}
+
+form {
+    height: 100%;
+    display: flex;
+}
+.textInput {
+    font-family: var(--letterFont);
+    font-size: 3rem;
+    text-align: center;
+    width: 70%;
+    border-radius: 5px 0px 0px 5px;
+    border-style: solid;
+    border-color: #C6C6C6;
+    background-color: #ffffff;
+    margin-right: 0;
+}
+/* this styles the placeholder text */
+.textInput::placeholder {
+    color: #000000;
+    text-align: center;
+}
+
+.submitFormButton {
+    background-color: #47b863;
+    font-size: 3rem;
+    font-family: var(--letterFont);
+    width: 30%;
+    border-radius: 0px 5px 5px 0px;
+    border-color: #47b863;
+    border-style: solid;
+}
+.retryButton {
+    background-color: #f4eb47;
+    font-size: 3rem;
+    font-family: var(--letterFont);
+    width: 30%;
+    border-radius: 0px 5px 5px 0px;
+    border-color: #f4eb47;
+    border-style: solid;
+    display: none;
+}
+/* toggling this class completely removes the section*/
+.outcome {
+    /*display: none;*/
+}
+/* toggling this class removes the enter button*/
+.enter{
+    display: none;
+}
+
+.retry {
+    display: block;
+}
+
 @media only screen and (min-width: 800px){
     .title h1 {
         font-size: 6rem;
@@ -112,6 +173,18 @@ nav {
     .delete {
         min-width: 60px;
     }
+
+    .textInput {
+        font-size: 3rem;
+    }
+
+    .retryButton {
+        font-size: 3rem;
+    }
+
+    .submitFormButton {
+        font-size: 3rem;
+    }
 }
 
 @media only screen and (max-width: 550px) {
@@ -119,6 +192,21 @@ nav {
         font-size: 2rem;
         height: 60px;
         border-radius: 12px;
+    }
+    .wordInput {
+        width: 90%;
+    }
+
+    .textInput {
+        font-size: 2rem;
+    }
+
+    .retryButton {
+        font-size: 2rem;
+    }
+
+    .submitFormButton {
+        font-size: 2rem;
     }
 }
 
