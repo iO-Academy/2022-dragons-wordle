@@ -100,8 +100,7 @@ nav {
 .wordInput {
     height: 70px;
     width: 70%;
-    margin: 0 auto;
-    margin-bottom: 25px;
+    margin: 0 auto 25px auto;
 }
 
 form {
