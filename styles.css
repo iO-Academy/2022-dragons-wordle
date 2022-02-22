@@ -21,7 +21,10 @@ html {
 main {
     display: flex;
     flex-direction: column;
-    justify-content: center;
+    align-items: center;
+    width: 100%;
+    max-width: 800px;
+    margin: 0 auto;
 }
 
 nav {
@@ -52,11 +55,6 @@ nav {
     font-size: 4rem;
 }
 
-@media only screen and (min-width: 800px){
-    .title h1 {
-        font-size: 6rem;
-    }
-}
 
 .keypadContainer {
     width: 80%;
@@ -68,12 +66,13 @@ nav {
     display: flex;
     justify-content: space-evenly;
     width: 100%;
+    margin: 0 auto;
 }
 
 .keypadKey {
     height: 90px;
     width: 70px;
-    margin: 7px;
+    margin: 5px;
     font-size: 4rem;
     font-family: var(--letterFont);
     min-width: 50px;
@@ -92,8 +91,14 @@ nav {
 
 .delete img {
     width: 60%;
-    heigh: auto;
+    height: auto;
     margin: auto;
+}
+
+@media only screen and (min-width: 800px){
+    .title h1 {
+        font-size: 6rem;
+    }
 }
 
 @media only screen and (max-width: 700px) {
@@ -113,6 +118,18 @@ nav {
     .keypadKey {
         font-size: 2rem;
         height: 60px;
+        border-radius: 12px;
     }
 }
 
+@media only screen and (max-width: 450px) {
+    .keypadKey {
+        margin: 1.4px;
+        min-width: 25px;
+        height: 40px;
+        border-radius: 8px;
+    }
+    .delete {
+        min-width: 50px;
+    }
+}
