@@ -1,0 +1,15 @@
+* {
+    box-sizing: border-box;
+}
+
+
+html {
+    font-size: 62.5%;
+    scroll-behavior: smooth;
+    font-family: 'Dosis', sans-serif;
+    font-family: 'Secular One', sans-serif;
+}
+
+body {
+
+}
