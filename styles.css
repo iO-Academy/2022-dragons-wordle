@@ -1,0 +1,323 @@
+* {
+    box-sizing: border-box;
+}
+
+:root {
+    --generalFont:'Dosis', sans-serif;
+    --letterFont:'Secular One', sans-serif;
+    --green: #47B863;
+    --yellow: #F4EB47;
+    --lightGrey: #C6C6C6;
+    --darkGrey: #595959;
+}
+
+/*to use :root, define the property as normal, then after the colon, write var(--generalFont); for example*/
+
+html {
+    font-size: 62.5%;
+    scroll-behavior: smooth;
+}
+
+main {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    width: 100%;
+    max-width: 800px;
+    margin: 0 auto;
+}
+
+.letterTiles {
+    height: 250px;
+    background-color: blue;
+    width: 90%;
+    margin: 5px;
+}
+
+nav {
+    padding: 2rem 3rem 0 2rem;
+    display: flex;
+    justify-content: flex-end;
+}
+
+#instructions {
+    font-family: var(--generalFont);
+    font-size: 2rem;
+    border-radius: 50%;
+    border-color: var(--lightGrey);
+    border-style: solid;
+    background-color: #FFFFFF;
+    width: 3rem;
+    height: 3rem;
+}
+
+#instructions:hover {
+    cursor: pointer;
+}
+
+.title {
+    width: 80vw;
+    display: flex;
+    justify-content: center;
+}
+
+.title h1 {
+    font-family: var(--generalFont);
+    font-size: 4rem;
+}
+
+
+.keypadContainer {
+    width: 80%;
+    margin: 0 auto;
+    max-width: 800px;
+    osition: absolute;
+    bottom: 5%;
+}
+
+.keypadRow {
+    display: flex;
+    justify-content: space-evenly;
+    width: 100%;
+    margin: 0 auto;
+}
+
+.keypadKey {
+    height: 90px;
+    width: 70px;
+    margin: 5px;
+    font-size: 4rem;
+    font-family: var(--letterFont);
+    min-width: 50px;
+    padding: 2px;
+    border: none;
+    border-radius: 15px;
+    background-color: var(--lightGrey);
+}
+
+.delete {
+    width: 140px;
+    display: flex;
+    justify-content: center;
+    min-width: 100px;
+}
+
+.delete img {
+    width: 60%;
+    height: auto;
+    margin: auto;
+}
+
+.overlay {
+    font-family: var(--generalFont);
+    width: 100%;
+    height: 100%;
+    top: 0;
+    left: 0;
+    background-color: rgba(0, 0, 0, 0.5);
+    position: absolute;
+    z-index: 1;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.modal {
+    width: 375px;
+    max-width: 90%;
+    max-height: 90%;
+    position: absolute;
+    z-index: 2;
+    display: flex;
+    flex-direction: column;
+    background-color: rgb(255, 255, 255);
+    padding: 15px;
+}
+
+.closeBtn {
+    position: absolute;
+    top: 10px;
+    align-self: flex-end;
+    width: 30px;
+    height: 30px;
+    border-style: solid;
+    border-width: 1px;
+    border-color: rgb(0, 0, 0);
+    border-radius: 15px;
+    font-size: 4rem;
+    display: flex;
+    align-items: center;
+    padding-bottom: 8px;
+}
+
+.closeBtn:hover {
+    cursor: pointer;
+}
+
+.modal h1 {
+    font-size: 2rem;
+    margin-right: 40px;
+}
+
+.modal ul {
+    padding: 0;
+}
+
+.modal li {
+    font-size: 1.7rem;
+    list-style: none;
+    padding-bottom: 7px;
+}
+
+.modal p {
+    display: inline;
+}
+
+.correct {
+    color: var(--green);
+}
+
+.rightLetter {
+    color: var(--yellow);
+}
+
+.wrongLetter {
+    color: var(--darkGrey);
+}
+
+.wordInput {
+    height: 70px;
+    width: 70%;
+    margin: 0 auto 25px auto;
+}
+
+form {
+    height: 100%;
+    display: flex;
+}
+.textInput {
+    font-family: var(--letterFont);
+    font-size: 3rem;
+    text-align: center;
+    width: 70%;
+    border-radius: 5px 0px 0px 5px;
+    border-style: solid;
+    border-color: #C6C6C6;
+    background-color: #ffffff;
+    margin-right: 0;
+}
+/* this styles the placeholder text */
+.textInput::placeholder {
+    color: #000000;
+    text-align: center;
+}
+
+.submitFormButton {
+    background-color: #47b863;
+    font-size: 3rem;
+    font-family: var(--letterFont);
+    width: 30%;
+    border-radius: 0px 5px 5px 0px;
+    border-color: #47b863;
+    border-style: solid;
+}
+.retryButton {
+    background-color: #f4eb47;
+    font-size: 3rem;
+    font-family: var(--letterFont);
+    width: 30%;
+    border-radius: 0px 5px 5px 0px;
+    border-color: #f4eb47;
+    border-style: solid;
+    display: none;
+}
+/* toggling this class completely removes the section*/
+.outcome {
+    /*display: none;*/
+}
+/* toggling this class removes the enter button*/
+.enter{
+    display: none;
+}
+
+.retry {
+    display: block;
+}
+
+@media only screen and (min-width: 800px){
+    .title h1 {
+        font-size: 6rem;
+    }
+}
+
+@media only screen and (max-width: 700px) {
+    .keypadKey {
+        min-width: 30px;
+        margin: 4px;
+        font-size: 3rem;
+        height: 70px;
+    }
+
+    .delete {
+        min-width: 60px;
+    }
+
+    .textInput {
+        font-size: 3rem;
+    }
+
+    .retryButton {
+        font-size: 3rem;
+    }
+
+    .submitFormButton {
+        font-size: 3rem;
+    }
+}
+
+@media only screen and (max-width: 550px) {
+    .keypadKey {
+        font-size: 2rem;
+        height: 60px;
+        border-radius: 12px;
+    }
+    .wordInput {
+        width: 90%;
+    }
+
+    .textInput {
+        font-size: 2rem;
+    }
+
+    .retryButton {
+        font-size: 2rem;
+    }
+
+    .submitFormButton {
+        font-size: 2rem;
+    }
+}
+
+@media only screen and (max-width: 450px) {
+    .keypadKey {
+        margin: 1.4px;
+        min-width: 25px;
+        height: 40px;
+        border-radius: 8px;
+    }
+    .delete {
+        min-width: 50px;
+    }
+}
+
+@media only screen and (min-width: 390px) {
+    .modal li {
+        font-size: 1.4rem;
+    }
+}
+
+@media only screen and (min-width: 305px) {
+    .modal {
+        padding: 25px;
+    }
+}

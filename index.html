@@ -1,0 +1,88 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Dosis:wght@500&family=Secular+One&display=swap" rel="stylesheet">
+    <link rel="shortcut icon" type="image/jpg" href="Nerd Emoji With Glasses.png"/>
+    <link href= "normalize.css" type="text/css" rel="stylesheet"/>
+    <meta name="viewport" content="width=device-width">
+    <script src="index.js" defer></script>
+    <link href="styles.css" rel="stylesheet" type="text/css" />
+    <title>Word Nerd</title>
+</head>
+<body>
+    <nav>
+        <button id="instructions">?</button>
+        <div class="overlay">
+            <div class="modal">
+                <button class="closeBtn">&times;</button>
+                <h1>Instructions for W&#129299RD NERD</h1>
+                <ul>
+                    <li>Guess the 5 letter word!</li>
+                    <li>You have 6 attempts to guess the word correctly.</li>
+                    <li>Enter your guess from the virtual keypad or your keyboard letters, then press 'submit'.</li>
+                    <li>Each guess must be 5 letters long, with no numbers or spaces.</li>
+                    <li>Each tile will change colour to reflect the accuracy of your guess.</li>
+                    <li><p class="correct">Green</p> = The letter is in the right place</li>
+                    <li><p class="rightLetter">Yellow</p> = The letter is in the word, but not in the right place</li>
+                    <li><p class="wrongLetter">Dark grey</p> = The letter is not in the word</li>
+                    <li>After the game has finished, you can play again by clicking the 'Replay' button</li>
+                    <li>Have fun W&#129299RD NERD;!</li>
+                </ul>
+            </div>
+        </div>
+    </nav>
+    <main>
+        <div class="title"><h1>W&#129299RD NERD</h1></div>
+        <div class="letterTiles">
+
+        </div>
+        <div class="wordInput Input Outcome">
+            <form method="post">
+                <input type="text" placeholder="Guess Word ..." class="textInput">
+                <input type="submit" value="Enter" class="enter submitFormButton">
+                <input type="submit" value="Retry" class="retry retryButton">
+            </form>
+        </div>
+        <section class="keypadContainer">
+            <div class="keypadRow">
+                <button class="keypadKey" data-letter="q">Q</button>
+                <button class="keypadKey" data-letter="w">W</button>
+                <button class="keypadKey" data-letter="e">E</button>
+                <button class="keypadKey" data-letter="r">R</button>
+                <button class="keypadKey" data-letter="t">T</button>
+                <button class="keypadKey" data-letter="y">Y</button>
+                <button class="keypadKey" data-letter="u">U</button>
+                <button class="keypadKey" data-letter="i">I</button>
+                <button class="keypadKey" data-letter="o">O</button>
+                <button class="keypadKey" data-letter="p">P</button>
+            </div>
+            <div class="keypadRow">
+                <button class="keypadKey" data-letter="a">A</button>
+                <button class="keypadKey" data-letter="s">S</button>
+                <button class="keypadKey" data-letter="d">D</button>
+                <button class="keypadKey" data-letter="f">F</button>
+                <button class="keypadKey" data-letter="g">G</button>
+                <button class="keypadKey" data-letter="h">H</button>
+                <button class="keypadKey" data-letter="j">J</button>
+                <button class="keypadKey" data-letter="k">K</button>
+                <button class="keypadKey" data-letter="l">L</button>
+            </div>
+            <div class="keypadRow">
+                <button class="keypadKey" data-letter="z">Z</button>
+                <button class="keypadKey" data-letter="x">X</button>
+                <button class="keypadKey" data-letter="c">C</button>
+                <button class="keypadKey" data-letter="v">V</button>
+                <button class="keypadKey" data-letter="b">B</button>
+                <button class="keypadKey" data-letter="n">N</button>
+                <button class="keypadKey" data-letter="m">M</button>
+                <button class="keypadKey delete" data-letter="delete"><img src="deleteKey.png" alt="delete key icon"></button>
+            </div>
+        </section>
+    </main>
+
+</body>
+</html>
+
