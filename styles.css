@@ -240,16 +240,6 @@ form {
     display: flex;
 }
 
-/* toggling this class removes the enter button*/
-/*.enter{
-    display: none;
-}
-
-.retry {
-    display: block;
-}
-*/
-
 .tileRow {
     display: flex;
     flex-direction: row;

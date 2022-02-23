@@ -6,6 +6,7 @@ let wordInput = document.getElementById('wordInput')
 let guessedWord
 let randomWord
 let matchResult
+let counter = 0
 
 function getRandom(array) {
     return Math.floor(Math.random() * parseInt(array.length))
@@ -21,7 +22,8 @@ function enableEnterButton (length) {
 
 function outcomeOutput(bool, inputWord) {
     document.querySelector('.textInput').style.display = 'none'
-    document.querySelector('.submitFormButton').style.display = 'none'
+    /*document.querySelector('.submitFormButton').style.display = 'none'
+    document.querySelector('.retry').style.display = 'block'*/
     document.querySelector('form').style.justifyContent = 'center'
     let pTag = document.createElement('p')
     if(bool) {
@@ -88,7 +90,12 @@ allKeys.forEach((key) => {
 })
 
 document.getElementById("enterButton").addEventListener('click', (e) => {
-    e.preventDefault();
+    e.preventDefault()
+    counter++
+    if (counter === 6) {
+        document.querySelector('.submitFormButton').style.display = 'none'
+        document.querySelector('.retryButton').style.display = 'block'
+    }
 
     guessedWord = wordInput.value.toLowerCase()
 
