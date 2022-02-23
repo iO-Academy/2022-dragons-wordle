@@ -23,10 +23,8 @@ allKeys.forEach((key) => {
     key.addEventListener('click', () => {
         if (key.dataset.letter === 'delete') {
             wordInput.value = wordInput.value.substring(0, wordInput.value.length - 1)
-            console.log(wordInput.value)
         } else {
             wordInput.value += key.dataset.letter
-            console.log(wordInput.value)
         }
     })
 })
