@@ -1,6 +1,13 @@
 const index = document.querySelector('.overlay')
 const modalClose = document.querySelector('.closeBtn')
 const instructionsBtn = document.getElementById('instructions')
+let guessedWord
+let randomWord
+let matchResult
+
+function getRandom(array) {
+    return Math.floor(Math.random() * parseInt(array.length))
+}
 
 function enableEnterButton (length) {
     if (length === 5) {
@@ -14,7 +21,8 @@ fetch('words.json')
     .then((data)=> {
         return data.json()
     }).then((result) => {
-    let word = result.fiveLetterWords[0]
+    let randomNumber = getRandom(result.fiveLetterWords)
+    randomWord = result.fiveLetterWords[randomNumber]
 })
 
 instructionsBtn.addEventListener('click', (e) => {
@@ -46,15 +54,42 @@ allKeys.forEach((key) => {
 })
 
 document.getElementById("enterButton").addEventListener('click', (e) => {
-    e.preventDefault()
-    let guessedWord = wordInput.value
+
+    e.preventDefault();
+    guessedWord = wordInput.value
     console.log(guessedWord)
+    console.log(randomWord)
+
+     if (guessedWord === randomWord) {
+        matchResult = true
+    } else {
+        matchResult = false
+    }
 })
+
+function outcomeOutput(bool, inputWord) {
+    document.querySelector('.textInput').style.display = 'none'
+    document.querySelector('.submitFormButton').style.display = 'none'
+    document.querySelector('form').style.justifyContent = 'center'
+    if(bool) {
+        let correctTag = document.createElement('p')
+        let correctText = document.createTextNode(inputWord + ' was correct')
+        correctTag.appendChild(correctText)
+
+        document.querySelector('form').appendChild(correctTag)
+    } else {
+        let incorrectTag = document.createElement('p')
+        let incorrectText = document.createTextNode(inputWord + ' was incorrect')
+        incorrectTag.appendChild(incorrectText)
+
+        document.querySelector('form').appendChild(incorrectTag)
+    }
+    document.querySelector('form').style.flexDirection = 'row-reverse'
+}
 
 wordInput.addEventListener('input', (e) => {
     let strippedInput = wordInput.value.replace(/\s+/g, '')
     wordInput.value = strippedInput
     enableEnterButton(wordInput.value.length)
 })
-
 
