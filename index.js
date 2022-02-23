@@ -6,9 +6,7 @@ fetch('words.json')
     .then((data)=> {
         return data.json()
     }).then((result) => {
-        console.log(result)
     let word = result.fiveLetterWords[0]
-    console.log(word)
 })
 
 instructionsBtn.addEventListener('click', (e) => {
