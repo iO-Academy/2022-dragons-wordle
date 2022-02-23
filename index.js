@@ -1,12 +1,20 @@
 const index = document.querySelector('.overlay')
 const modalClose = document.querySelector('.closeBtn')
 const instructionsBtn = document.getElementById('instructions')
+let guessedWord
+let randomWord
+let matchResult
+
+function getRandom(array) {
+    return Math.floor(Math.random() * parseInt(array.length))
+}
 
 fetch('words.json')
     .then((data)=> {
         return data.json()
     }).then((result) => {
-    let word = result.fiveLetterWords[0]
+    let randomNumber = getRandom(result.fiveLetterWords)
+    randomWord = result.fiveLetterWords[randomNumber]
 })
 
 instructionsBtn.addEventListener('click', (e) => {
@@ -38,8 +46,15 @@ allKeys.forEach((key) => {
 
 document.getElementById("enterButton").addEventListener('click', (e) => {
     e.preventDefault();
-    let guessedWord = wordInput.value;
-    console.log(guessedWord);
+    guessedWord = wordInput.value
+    console.log(guessedWord)
+    console.log(randomWord)
+
+     if (guessedWord === randomWord) {
+        matchResult = true
+    } else {
+        matchResult = false
+    }
 })
 
 function outcomeOutput(bool, inputWord) {
