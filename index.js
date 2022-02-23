@@ -11,7 +11,6 @@ fetch('words.json')
     }
     let randomNumber = getRandom()
     let randomWord = result.fiveLetterWords[randomNumber]
-    console.log(randomWord)
 })
 
 instructionsBtn.addEventListener('click', (e) => {
