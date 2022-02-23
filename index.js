@@ -41,3 +41,21 @@ document.getElementById("enterButton").addEventListener('click', (e) => {
     let guessedWord = wordInput.value;
     console.log(guessedWord);
 })
+
+function outcomeOutput(bool, inputWord) {
+    document.querySelector('.textInput').style.display = 'none'
+    if(bool) {
+        let correctTag = document.createElement('p')
+        let correctText = document.createTextNode(inputWord + ' was correct')
+        correctTag.appendChild(correctText)
+
+        document.querySelector('form').appendChild(correctTag)
+    } else {
+        let correctTag = document.createElement('p')
+        let correctText = document.createTextNode(inputWord + ' was incorrect')
+        correctTag.appendChild(correctText)
+
+        document.querySelector('.wordInput').appendChild(correctTag)
+    }
+    document.querySelector('form').style.flexDirection = 'row-reverse'
+}

@@ -16,24 +16,22 @@ window.addEventListener('click', (e) => {
     }
 })
 
-function check(input, word) {
+function outcomeOutput(bool, inputWord) {
     document.querySelector('.textInput').style.display = 'none'
-    if(input) {
+    if(bool) {
         let correctTag = document.createElement('p')
-        let correctText = document.createTextNode(word + ' was correct')
+        let correctText = document.createTextNode(inputWord + ' was correct')
         correctTag.appendChild(correctText)
 
         document.querySelector('form').appendChild(correctTag)
-        console.log('it worked')
     } else {
         let correctTag = document.createElement('p')
-        let correctText = document.createTextNode(word + ' was incorrect')
+        let correctText = document.createTextNode(inputWord + ' was incorrect')
         correctTag.appendChild(correctText)
 
         document.querySelector('.wordInput').appendChild(correctTag)
-        console.log('it worked')
     }
     document.querySelector('form').style.flexDirection = 'row-reverse'
 }
 
-check(true, 'hello')
+outcomeOutput(true, 'hello')
