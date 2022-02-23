@@ -91,7 +91,7 @@ function outcomeOutput(bool, inputWord) {
 
 
 wordInput.addEventListener('input', (e) => {
-    let strippedInput = wordInput.value.replace(/\s+/g, '')
+    let strippedInput = wordInput.value.replace(/[\W_]+/g,"")
     wordInput.value = strippedInput
     enableEnterButton(wordInput.value.length)
 })
