@@ -25,11 +25,11 @@ function outcomeOutput(bool, inputWord) {
     document.querySelector('form').style.justifyContent = 'center'
     let pTag = document.createElement('p')
     if(bool) {
-        let correctText = document.createTextNode(inputWord.toUpperCase() + ' was correct')
+        let correctText = document.createTextNode(inputWord.toLowerCase() + ' was correct')
         pTag.appendChild(correctText)
         document.querySelector('form').appendChild(pTag)
     } else {
-        let incorrectText = document.createTextNode(inputWord.toUpperCase() + ' was incorrect')
+        let incorrectText = document.createTextNode(inputWord.toLowerCase() + ' was incorrect')
         pTag.appendChild(incorrectText)
         document.querySelector('form').appendChild(pTag)
     }
@@ -64,7 +64,7 @@ allKeys.forEach((key) => {
         if (key.dataset.letter === 'delete') {
             wordInput.value = wordInput.value.substring(0, wordInput.value.length - 1)
         } else {
-            wordInput.value += key.dataset.letter.toUpperCase()
+            wordInput.value += key.dataset.letter.toLowerCase()
         }
         enableEnterButton(wordInput.value.length)
     })
@@ -72,7 +72,8 @@ allKeys.forEach((key) => {
 
 document.getElementById("enterButton").addEventListener('click', (e) => {
     e.preventDefault();
-    guessedWord = wordInput.value
+
+    guessedWord = wordInput.value.toLowerCase()
 
     if (guessedWord === randomWord) {
         matchResult = true
