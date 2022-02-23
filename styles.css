@@ -236,14 +236,14 @@ form {
     /*display: none;*/
 }
 /* toggling this class removes the enter button*/
-.enter{
+/*.enter{
     display: none;
 }
 
 .retry {
     display: block;
 }
-
+*/
 @media only screen and (min-width: 800px){
     .title h1 {
         font-size: 6rem;
