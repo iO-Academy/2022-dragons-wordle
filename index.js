@@ -40,12 +40,12 @@ function addTileRow() {
     let rowId = "tileRow1"
     let letterArray = guessedWord.split("")
     letterArray.forEach((letter) => {
-        let div_tag = document.createElement('div')
-        div_tag.setAttribute('class', 'tile')
-        let p_tag = document.createElement('p')
-        p_tag.innerText = letter.toUpperCase()
-        div_tag.appendChild(p_tag)
-        document.getElementById(rowId).appendChild(div_tag)
+        let divTag = document.createElement('div')
+        divTag.setAttribute('class', 'tile')
+        let pTag = document.createElement('p')
+        pTag.innerText = letter.toUpperCase()
+        divTag.appendChild(pTag)
+        document.getElementById(rowId).appendChild(divTag)
     })
 }
 
