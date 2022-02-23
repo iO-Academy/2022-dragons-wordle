@@ -2,6 +2,14 @@ const index = document.querySelector('.overlay')
 const modalClose = document.querySelector('.closeBtn')
 const instructionsBtn = document.getElementById('instructions')
 
+function enableEnterButton (length) {
+    if (length === 5) {
+        document.getElementById("enterButton").removeAttribute('disabled')
+    } else {
+        document.getElementById("enterButton").setAttribute('disabled', '')
+    }
+}
+
 fetch('words.json')
     .then((data)=> {
         return data.json()
@@ -10,7 +18,7 @@ fetch('words.json')
 })
 
 instructionsBtn.addEventListener('click', (e) => {
-    index.style.display = 'flex';
+    index.style.display = 'flex'
 })
 
 modalClose.addEventListener('click', (e) => {
@@ -19,7 +27,7 @@ modalClose.addEventListener('click', (e) => {
 
 window.addEventListener('click', (e) => {
     if (e.target == index) {
-        index.style.display = "none";
+        index.style.display = "none"
     }
 })
 
@@ -33,11 +41,20 @@ allKeys.forEach((key) => {
         } else {
             wordInput.value += key.dataset.letter
         }
+        enableEnterButton(wordInput.value.length)
     })
 })
 
 document.getElementById("enterButton").addEventListener('click', (e) => {
-    e.preventDefault();
-    let guessedWord = wordInput.value;
-    console.log(guessedWord);
+    e.preventDefault()
+    let guessedWord = wordInput.value
+    console.log(guessedWord)
 })
+
+wordInput.addEventListener('input', (e) => {
+    let strippedInput = wordInput.value.replace(/\s+/g, '')
+    wordInput.value = strippedInput
+    enableEnterButton(wordInput.value.length)
+})
+
+
