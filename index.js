@@ -65,6 +65,8 @@ document.getElementById("enterButton").addEventListener('click', (e) => {
     } else {
         matchResult = false
     }
+    outcomeOutput(matchResult, guessedWord)
+
 })
 
 function outcomeOutput(bool, inputWord) {
@@ -87,9 +89,9 @@ function outcomeOutput(bool, inputWord) {
     document.querySelector('form').style.flexDirection = 'row-reverse'
 }
 
+
 wordInput.addEventListener('input', (e) => {
     let strippedInput = wordInput.value.replace(/\s+/g, '')
     wordInput.value = strippedInput
     enableEnterButton(wordInput.value.length)
 })
-
