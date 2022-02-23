@@ -39,7 +39,7 @@ allKeys.forEach((key) => {
         if (key.dataset.letter === 'delete') {
             wordInput.value = wordInput.value.substring(0, wordInput.value.length - 1)
         } else {
-            wordInput.value += key.dataset.letter
+            wordInput.value += key.dataset.letter.toUpperCase()
         }
     })
 })
@@ -65,13 +65,13 @@ function outcomeOutput(bool, inputWord) {
     document.querySelector('form').style.justifyContent = 'center'
     if(bool) {
         let correctTag = document.createElement('p')
-        let correctText = document.createTextNode(inputWord + ' was correct')
+        let correctText = document.createTextNode(inputWord.toUpperCase() + ' was correct')
         correctTag.appendChild(correctText)
 
         document.querySelector('form').appendChild(correctTag)
     } else {
         let incorrectTag = document.createElement('p')
-        let incorrectText = document.createTextNode(inputWord + ' was incorrect')
+        let incorrectText = document.createTextNode(inputWord.toUpperCase() + ' was incorrect')
         incorrectTag.appendChild(incorrectText)
 
         document.querySelector('form').appendChild(incorrectTag)

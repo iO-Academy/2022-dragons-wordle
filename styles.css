@@ -108,6 +108,10 @@ nav {
     margin: auto;
 }
 
+.textInput {
+    text-transform: uppercase;
+}
+
 .overlay {
     font-family: var(--generalFont);
     width: 100%;
