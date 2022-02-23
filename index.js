@@ -42,6 +42,10 @@ fetch('words.json')
     }).then((result) => {
     let randomNumber = getRandom(result.fiveLetterWords)
     randomWord = result.fiveLetterWords[randomNumber]
+    if(randomWord === document.cookie.split('=')[1]){
+        window.location.reload()
+    }
+    document.cookie = "word=" + randomWord + ";expiry = Thu, 31 Dec 2037 12:00:00 UTC;"
 })
 
 instructionsBtn.addEventListener('click', (e) => {
