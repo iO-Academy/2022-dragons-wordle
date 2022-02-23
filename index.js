@@ -6,7 +6,11 @@ fetch('words.json')
     .then((data)=> {
         return data.json()
     }).then((result) => {
-    let word = result.fiveLetterWords[0]
+    function getRandom() {
+        return Math.floor(Math.random() * 638)
+    }
+    let randomNumber = getRandom()
+    let randomWord = result.fiveLetterWords[randomNumber]
 })
 
 instructionsBtn.addEventListener('click', (e) => {
