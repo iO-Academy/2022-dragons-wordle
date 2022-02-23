@@ -15,3 +15,18 @@ window.addEventListener('click', (e) => {
         index.style.display = "none";
     }
 })
+
+let allKeys = document.querySelectorAll('.keypadKey')
+let wordInput = document.getElementById('wordInput')
+
+allKeys.forEach((key) => {
+    key.addEventListener('click', () => {
+        if (key.dataset.letter === 'delete') {
+            wordInput.value = wordInput.value.substring(0, wordInput.value.length - 1)
+        } else {
+            wordInput.value += key.dataset.letter
+        }
+    })
+})
+
+
