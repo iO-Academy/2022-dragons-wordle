@@ -44,6 +44,8 @@ document.getElementById("enterButton").addEventListener('click', (e) => {
 
 function outcomeOutput(bool, inputWord) {
     document.querySelector('.textInput').style.display = 'none'
+    document.querySelector('.submitFormButton').style.display = 'none'
+    document.querySelector('form').style.justifyContent = 'center'
     if(bool) {
         let correctTag = document.createElement('p')
         let correctText = document.createTextNode(inputWord + ' was correct')
