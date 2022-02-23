@@ -1,6 +1,8 @@
 const index = document.querySelector('.overlay')
 const modalClose = document.querySelector('.closeBtn')
 const instructionsBtn = document.getElementById('instructions')
+let allKeys = document.querySelectorAll('.keypadKey')
+let wordInput = document.getElementById('wordInput')
 let guessedWord
 let randomWord
 let matchResult
@@ -15,6 +17,23 @@ function enableEnterButton (length) {
     } else {
         document.getElementById("enterButton").setAttribute('disabled', '')
     }
+}
+
+function outcomeOutput(bool, inputWord) {
+    document.querySelector('.textInput').style.display = 'none'
+    document.querySelector('.submitFormButton').style.display = 'none'
+    document.querySelector('form').style.justifyContent = 'center'
+    let pTag = document.createElement('p')
+    if(bool) {
+        let correctText = document.createTextNode(inputWord.toUpperCase() + ' was correct')
+        pTag.appendChild(correctText)
+        document.querySelector('form').appendChild(pTag)
+    } else {
+        let incorrectText = document.createTextNode(inputWord.toUpperCase() + ' was incorrect')
+        pTag.appendChild(incorrectText)
+        document.querySelector('form').appendChild(pTag)
+    }
+    document.querySelector('form').style.flexDirection = 'row-reverse'
 }
 
 fetch('words.json')
@@ -39,8 +58,6 @@ window.addEventListener('click', (e) => {
     }
 })
 
-let allKeys = document.querySelectorAll('.keypadKey')
-let wordInput = document.getElementById('wordInput')
 
 allKeys.forEach((key) => {
     key.addEventListener('click', () => {
@@ -54,13 +71,10 @@ allKeys.forEach((key) => {
 })
 
 document.getElementById("enterButton").addEventListener('click', (e) => {
-
     e.preventDefault();
     guessedWord = wordInput.value
-    console.log(guessedWord)
-    console.log(randomWord)
 
-     if (guessedWord === randomWord) {
+    if (guessedWord === randomWord) {
         matchResult = true
     } else {
         matchResult = false
@@ -68,27 +82,6 @@ document.getElementById("enterButton").addEventListener('click', (e) => {
     outcomeOutput(matchResult, guessedWord)
 
 })
-
-function outcomeOutput(bool, inputWord) {
-    document.querySelector('.textInput').style.display = 'none'
-    document.querySelector('.submitFormButton').style.display = 'none'
-    document.querySelector('form').style.justifyContent = 'center'
-    if(bool) {
-        let correctTag = document.createElement('p')
-        let correctText = document.createTextNode(inputWord.toUpperCase() + ' was correct')
-        correctTag.appendChild(correctText)
-
-        document.querySelector('form').appendChild(correctTag)
-    } else {
-        let incorrectTag = document.createElement('p')
-        let incorrectText = document.createTextNode(inputWord.toUpperCase() + ' was incorrect')
-        incorrectTag.appendChild(incorrectText)
-
-        document.querySelector('form').appendChild(incorrectTag)
-    }
-    document.querySelector('form').style.flexDirection = 'row-reverse'
-}
-
 
 wordInput.addEventListener('input', (e) => {
     let strippedInput = wordInput.value.replace(/[\W_]+/g,"")
