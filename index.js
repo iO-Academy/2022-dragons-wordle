@@ -39,7 +39,7 @@ function outcomeOutput(bool, inputWord) {
 }
 
 function addTileRow() {
-    let rowId = "tileRow1"
+    let rowId = "tileRow" + counter
     let letterArray = guessedWord.split("")
     letterArray.forEach((letter) => {
         let divTag = document.createElement('div')
@@ -61,6 +61,7 @@ fetch('words.json')
         window.location.reload()
     }
     document.cookie = "word=" + randomWord + ";expiry = Thu, 31 Dec 2037 12:00:00 UTC;"
+    console.log(randomWord)
 })
 
 instructionsBtn.addEventListener('click', (e) => {
@@ -91,20 +92,25 @@ allKeys.forEach((key) => {
 
 document.getElementById("enterButton").addEventListener('click', (e) => {
     e.preventDefault()
+    guessedWord = wordInput.value.toLowerCase()
     counter++
     if (counter === 6) {
         document.querySelector('.submitFormButton').style.display = 'none'
         document.querySelector('.retryButton').style.display = 'block'
+        if (guessedWord === randomWord) {
+            matchResult = true
+        } else {
+            matchResult = false
+        }
+        outcomeOutput(matchResult, guessedWord)
     }
-
-    guessedWord = wordInput.value.toLowerCase()
-
     if (guessedWord === randomWord) {
         matchResult = true
-    } else {
-        matchResult = false
+        outcomeOutput(matchResult, guessedWord)
     }
-    outcomeOutput(matchResult, guessedWord)
+
+
+
     addTileRow(guessedWord)
 })
 
