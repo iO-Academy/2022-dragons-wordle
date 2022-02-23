@@ -36,4 +36,8 @@ allKeys.forEach((key) => {
     })
 })
 
-
+document.getElementById("enterButton").addEventListener('click', (e) => {
+    e.preventDefault();
+    let guessedWord = wordInput.value;
+    console.log(guessedWord);
+})
