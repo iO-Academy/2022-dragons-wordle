@@ -53,11 +53,11 @@ function outcomeOutput(bool, inputWord) {
 
         document.querySelector('form').appendChild(correctTag)
     } else {
-        let correctTag = document.createElement('p')
-        let correctText = document.createTextNode(inputWord + ' was incorrect')
-        correctTag.appendChild(correctText)
+        let incorrectTag = document.createElement('p')
+        let incorrectText = document.createTextNode(inputWord + ' was incorrect')
+        incorrectTag.appendChild(incorrectText)
 
-        document.querySelector('.wordInput').appendChild(correctTag)
+        document.querySelector('form').appendChild(incorrectTag)
     }
     document.querySelector('form').style.flexDirection = 'row-reverse'
 }
