@@ -36,6 +36,19 @@ function outcomeOutput(bool, inputWord) {
     document.querySelector('form').style.flexDirection = 'row-reverse'
 }
 
+function addTileRow() {
+    let rowId = "tileRow1"
+    let letterArray = guessedWord.split("")
+    letterArray.forEach((letter) => {
+        let divTag = document.createElement('div')
+        divTag.setAttribute('class', 'tile')
+        let pTag = document.createElement('p')
+        pTag.innerText = letter.toUpperCase()
+        divTag.appendChild(pTag)
+        document.getElementById(rowId).appendChild(divTag)
+    })
+}
+
 fetch('words.json')
     .then((data)=> {
         return data.json()
@@ -85,7 +98,7 @@ document.getElementById("enterButton").addEventListener('click', (e) => {
         matchResult = false
     }
     outcomeOutput(matchResult, guessedWord)
-
+    addTileRow(guessedWord)
 })
 
 wordInput.addEventListener('input', (e) => {
