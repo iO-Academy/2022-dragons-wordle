@@ -231,19 +231,23 @@ form {
     border-style: solid;
     display: none;
 }
-/* toggling this class completely removes the section*/
-.outcome {
-    /*display: none;*/
+
+.wordInput p {
+    font-family: var(--letterFont);
+    font-size: 3rem;
+    text-align: center;
+    display: flex;
 }
+
 /* toggling this class removes the enter button*/
-.enter{
+/*.enter{
     display: none;
 }
 
 .retry {
     display: block;
 }
-
+*/
 @media only screen and (min-width: 800px){
     .title h1 {
         font-size: 6rem;
@@ -294,6 +298,10 @@ form {
     }
 
     .submitFormButton {
+        font-size: 2rem;
+    }
+
+    .wordInput p {
         font-size: 2rem;
     }
 }
