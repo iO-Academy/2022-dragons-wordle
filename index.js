@@ -7,6 +7,7 @@ let guessedWord
 let randomWord
 let matchResult
 let counter = 0
+wordInput.value = ""
 
 function getRandom(array) {
     return Math.floor(Math.random() * parseInt(array.length))
@@ -39,13 +40,48 @@ function outcomeOutput(bool, inputWord) {
     document.querySelector('form').style.flexDirection = 'row-reverse'
 }
 
+function checkMatches(answer, userWord) {
+    let checkAnswer = answer.split("");
+    let checkUserWord = userWord.split("");
+    let firstPass = '';
+    let secondPass = '';
+    checkUserWord.forEach((value, index) => {
+        if (value === checkAnswer[index]) {
+            checkAnswer[index] = '*';
+            firstPass += '*';
+        } else {
+            firstPass += value;
+        }
+    })
+    let firstPassArray = firstPass.split('');
+    firstPassArray.forEach((value) => {
+        if (checkAnswer.includes(value)) {
+            if (value !== '*') {
+                secondPass += 'rightLetter,';
+                let replaceIndex = checkAnswer.findIndex((letter) => letter === value)
+                checkAnswer[replaceIndex] = '/'
+            } else {
+                secondPass += 'correct,';
+            }
+        } else {
+            secondPass += 'wrongLetter,';
+        }
+    })
+
+    let output = secondPass.split(",");
+    output.pop();
+    return output;
+}
+
 function addTileRow(guessedWord) {
     let guessedWordTile = guessedWord
     let rowId = "tileRow" + counter
     let letterArray = guessedWordTile.split("")
-    letterArray.forEach((letter) => {
+    let classArray = checkMatches(randomWord, guessedWord)
+    letterArray.forEach((letter, index) => {
         let divTag = document.createElement('div')
-        divTag.setAttribute('class', 'tile')
+        let resultClass = classArray[index]
+        divTag.classList.add('tile', resultClass)
         let pTag = document.createElement('p')
         pTag.innerText = letter.toUpperCase()
         divTag.appendChild(pTag)
@@ -116,10 +152,8 @@ document.getElementById("enterButton").addEventListener('click', (e) => {
         matchResult = true
         outcomeOutput(matchResult, guessedWord)
     }
-
-
-
     addTileRow(guessedWord)
+    wordInput.value = ""
 })
 
 wordInput.addEventListener('input', (e) => {

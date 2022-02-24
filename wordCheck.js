@@ -24,14 +24,14 @@ function checkMatches(answer, userWord) {
     firstPassArray.forEach((value) => {
         if (checkAnswer.includes(value)) {
             if (value !== '*') {
-                secondPass += '@';
+                secondPass += 'rightLetter';
                 let replaceIndex = checkAnswer.findIndex((letter) => letter === value)
                 checkAnswer[replaceIndex] = '/'
             } else {
-                secondPass += '*';
+                secondPass += 'correct';
             }
         } else {
-            secondPass += 'X';
+            secondPass += 'wrongLetter';
         }
     })
 

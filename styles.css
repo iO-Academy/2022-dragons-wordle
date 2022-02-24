@@ -115,7 +115,7 @@ nav {
     top: 0;
     left: 0;
     background-color: rgba(0, 0, 0, 0.5);
-    position: absolute;
+    position: fixed;
     z-index: 1;
     display: flex;
     justify-content: center;
@@ -125,7 +125,6 @@ nav {
 .modal {
     width: 375px;
     max-width: 90%;
-    max-height: 90%;
     position: absolute;
     z-index: 2;
     display: flex;
@@ -173,17 +172,6 @@ nav {
     display: inline;
 }
 
-.correct {
-    color: var(--green);
-}
-
-.rightLetter {
-    color: var(--yellow);
-}
-
-.wrongLetter {
-    color: var(--darkGrey);
-}
 
 .wordInput {
     height: 70px;
@@ -277,6 +265,18 @@ form {
     margin: 0 auto;
 }
 
+.correct {
+    background-color: var(--green);
+}
+
+.rightLetter {
+    background-color: var(--yellow);
+}
+
+.wrongLetter {
+    background-color: var(--darkGrey);
+    color: #FFFFFF;
+}
 
 @media only screen and (min-width: 800px){
     .title h1 {
