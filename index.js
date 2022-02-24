@@ -89,8 +89,15 @@ function addTileRow(guessedWord) {
         document.getElementById(rowId).appendChild(divTag)
         let letterSelector = "[data-letter=" + letter + "]"
         let keypadKey = document.querySelector(letterSelector)
-        let keypadClass = 'keypadKey ' + resultClass
-        keypadKey.setAttribute('class', keypadClass)
+        let classKeyArray = keypadKey.className.split(' ')
+        if ( !classKeyArray.includes('correct')) {
+            let keypadClass = 'keypadKey ' + resultClass
+            keypadKey.setAttribute('class', keypadClass)
+        }
+        if ( classKeyArray.includes('rightLetter') && resultClass === 'wrongLetter') {
+            keypadKey.setAttribute('class', 'keypadKey rightLetter')
+        }
+
     })
 }
 
