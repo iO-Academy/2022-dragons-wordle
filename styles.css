@@ -217,6 +217,7 @@ form {
 .retryInput {
     display: flex;
     justify-content: center;
+    align-items: center;
 
 }
 
@@ -245,6 +246,7 @@ form {
     font-size: 3rem;
     text-align: center;
     display: flex;
+
 }
 
 .tileRow {
