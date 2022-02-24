@@ -206,11 +206,19 @@ form {
     border-color: #C6C6C6;
     background-color: #ffffff;
     margin-right: 0;
+    height: 100%;
 }
 /* this styles the placeholder text */
 .textInput::placeholder {
     color: #000000;
     text-align: center;
+}
+
+.retryInput {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+
 }
 
 .submitFormButton {
@@ -238,17 +246,8 @@ form {
     font-size: 3rem;
     text-align: center;
     display: flex;
-}
 
-/* toggling this class removes the enter button*/
-/*.enter{
-    display: none;
 }
-
-.retry {
-    display: block;
-}
-*/
 
 .tileRow {
     display: flex;
@@ -277,6 +276,7 @@ form {
 .tile p {
     margin: 0 auto;
 }
+
 
 @media only screen and (min-width: 800px){
     .title h1 {
