@@ -29,21 +29,20 @@ function outcomeOutput(bool, inputWord) {
     if(bool) {
         let correctText = document.createTextNode(inputWord.toLowerCase() + ' was correct')
         pTag.appendChild(correctText)
-        resultDiv.appendChild(pTag)
-        document.querySelector('form').appendChild(resultDiv)
         buttonSwitchToRetry()
     } else {
         let incorrectText = document.createTextNode(inputWord.toLowerCase() + ' was incorrect')
         pTag.appendChild(incorrectText)
-        resultDiv.appendChild(pTag)
-        document.querySelector('form').appendChild(resultDiv)
     }
+    resultDiv.appendChild(pTag)
+    document.querySelector('form').appendChild(resultDiv)
     document.querySelector('form').style.flexDirection = 'row-reverse'
 }
 
-function addTileRow() {
+function addTileRow(guessedWord) {
+    let guessedWordTile = guessedWord
     let rowId = "tileRow" + counter
-    let letterArray = guessedWord.split("")
+    let letterArray = guessedWordTile.split("")
     letterArray.forEach((letter) => {
         let divTag = document.createElement('div')
         divTag.setAttribute('class', 'tile')
@@ -72,7 +71,6 @@ fetch('words.json')
         window.location.reload()
     }
     document.cookie = "word=" + randomWord + ";expiry = Thu, 31 Dec 2037 12:00:00 UTC;"
-    console.log(randomWord)
 })
 
 instructionsBtn.addEventListener('click', (e) => {
