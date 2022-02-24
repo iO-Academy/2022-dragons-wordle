@@ -22,8 +22,6 @@ function enableEnterButton (length) {
 
 function outcomeOutput(bool, inputWord) {
     document.querySelector('.textInput').style.display = 'none'
-    /*document.querySelector('.submitFormButton').style.display = 'none'
-    document.querySelector('.retry').style.display = 'block'*/
     document.querySelector('form').style.justifyContent = 'center'
     let pTag = document.createElement('p')
     let resultDiv = document.createElement('div')
@@ -116,7 +114,6 @@ document.getElementById("enterButton").addEventListener('click', (e) => {
     if (guessedWord === randomWord) {
         matchResult = true
         outcomeOutput(matchResult, guessedWord)
-        console.log('bananas')
     }
 
 
