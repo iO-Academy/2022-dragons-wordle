@@ -141,10 +141,13 @@ allKeys.forEach((key) => {
         if (key.dataset.letter === 'delete') {
             wordInput.value = wordInput.value.substring(0, wordInput.value.length - 1)
         } else {
-            wordInput.value += key.dataset.letter.toLowerCase()
+            if (wordInput.value.length < 5) {
+                wordInput.value += key.dataset.letter.toLowerCase()
+            }
         }
         enableEnterButton(wordInput.value.length)
     })
+
 })
 
 document.getElementById("enterButton").addEventListener('click', (e) => {
@@ -171,4 +174,5 @@ wordInput.addEventListener('input', (e) => {
     let strippedInput = wordInput.value.replace(/[\W_]+/g,"")
     wordInput.value = strippedInput
     enableEnterButton(wordInput.value.length)
+
 })
