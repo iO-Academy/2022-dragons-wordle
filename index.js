@@ -145,12 +145,10 @@ document.getElementById("enterButton").addEventListener('click', (e) => {
     counter++
     if (counter === 6) {
         buttonSwitchToRetry()
-        if (guessedWord === randomWord) {
-            matchResult = true
-        } else {
+        if (guessedWord !== randomWord) {
             matchResult = false
+            outcomeOutput(matchResult, guessedWord)
         }
-        outcomeOutput(matchResult, guessedWord)
     }
     if (guessedWord === randomWord) {
         matchResult = true
