@@ -57,6 +57,9 @@ function addTileRow() {
 function buttonSwitchToRetry () {
     document.querySelector('.submitFormButton').style.display = 'none'
     document.querySelector('.retryButton').style.display = 'block'
+    document.querySelector('.retryButton').addEventListener('click', () => {
+        window.location.reload()
+    })
 }
 
 fetch('words.json')
