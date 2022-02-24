@@ -8,6 +8,7 @@ let randomWord
 let matchResult
 let counter = 0
 wordInput.value = ""
+document.getElementById("enterButton").setAttribute('disabled', '')
 
 function getRandom(array) {
     return Math.floor(Math.random() * parseInt(array.length))
@@ -86,6 +87,10 @@ function addTileRow(guessedWord) {
         pTag.innerText = letter.toUpperCase()
         divTag.appendChild(pTag)
         document.getElementById(rowId).appendChild(divTag)
+        let letterSelector = "[data-letter=" + letter + "]"
+        let keypadKey = document.querySelector(letterSelector)
+        let keypadClass = 'keypadKey ' + resultClass
+        keypadKey.setAttribute('class', keypadClass)
     })
 }
 
@@ -141,12 +146,10 @@ document.getElementById("enterButton").addEventListener('click', (e) => {
     counter++
     if (counter === 6) {
         buttonSwitchToRetry()
-        if (guessedWord === randomWord) {
-            matchResult = true
-        } else {
+        if (guessedWord !== randomWord) {
             matchResult = false
+            outcomeOutput(matchResult, guessedWord)
         }
-        outcomeOutput(matchResult, guessedWord)
     }
     if (guessedWord === randomWord) {
         matchResult = true
@@ -154,6 +157,7 @@ document.getElementById("enterButton").addEventListener('click', (e) => {
     }
     addTileRow(guessedWord)
     wordInput.value = ""
+    document.getElementById("enterButton").setAttribute('disabled', '')
 })
 
 wordInput.addEventListener('input', (e) => {

@@ -265,17 +265,17 @@ form {
     margin: 0 auto;
 }
 
-.correct {
-    background-color: var(--green);
+.wrongLetter {
+    background-color: var(--darkGrey);
+    color: #FFFFFF;
 }
 
 .rightLetter {
     background-color: var(--yellow);
 }
 
-.wrongLetter {
-    background-color: var(--darkGrey);
-    color: #FFFFFF;
+.correct {
+    background-color: var(--green);
 }
 
 @media only screen and (min-width: 800px){
