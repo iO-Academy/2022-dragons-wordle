@@ -206,11 +206,18 @@ form {
     border-color: #C6C6C6;
     background-color: #ffffff;
     margin-right: 0;
+    height: 100%;
 }
 /* this styles the placeholder text */
 .textInput::placeholder {
     color: #000000;
     text-align: center;
+}
+
+.retryInput {
+    display: flex;
+    justify-content: center;
+
 }
 
 .submitFormButton {
@@ -267,6 +274,7 @@ form {
 .tile p {
     margin: 0 auto;
 }
+
 
 @media only screen and (min-width: 800px){
     .title h1 {

@@ -26,14 +26,19 @@ function outcomeOutput(bool, inputWord) {
     document.querySelector('.retry').style.display = 'block'*/
     document.querySelector('form').style.justifyContent = 'center'
     let pTag = document.createElement('p')
+    let resultDiv = document.createElement('div')
+    resultDiv.classList.add('textInput', 'retryInput')
     if(bool) {
         let correctText = document.createTextNode(inputWord.toLowerCase() + ' was correct')
         pTag.appendChild(correctText)
-        document.querySelector('form').appendChild(pTag)
+        resultDiv.appendChild(pTag)
+        document.querySelector('form').appendChild(resultDiv)
+        buttonSwitchToRetry()
     } else {
         let incorrectText = document.createTextNode(inputWord.toLowerCase() + ' was incorrect')
         pTag.appendChild(incorrectText)
-        document.querySelector('form').appendChild(pTag)
+        resultDiv.appendChild(pTag)
+        document.querySelector('form').appendChild(resultDiv)
     }
     document.querySelector('form').style.flexDirection = 'row-reverse'
 }
@@ -49,6 +54,11 @@ function addTileRow() {
         divTag.appendChild(pTag)
         document.getElementById(rowId).appendChild(divTag)
     })
+}
+
+function buttonSwitchToRetry () {
+    document.querySelector('.submitFormButton').style.display = 'none'
+    document.querySelector('.retryButton').style.display = 'block'
 }
 
 fetch('words.json')
@@ -95,8 +105,7 @@ document.getElementById("enterButton").addEventListener('click', (e) => {
     guessedWord = wordInput.value.toLowerCase()
     counter++
     if (counter === 6) {
-        document.querySelector('.submitFormButton').style.display = 'none'
-        document.querySelector('.retryButton').style.display = 'block'
+        buttonSwitchToRetry()
         if (guessedWord === randomWord) {
             matchResult = true
         } else {
@@ -107,6 +116,7 @@ document.getElementById("enterButton").addEventListener('click', (e) => {
     if (guessedWord === randomWord) {
         matchResult = true
         outcomeOutput(matchResult, guessedWord)
+        console.log('bananas')
     }
 
 
