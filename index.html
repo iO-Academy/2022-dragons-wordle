@@ -36,16 +36,21 @@
     </nav>
     <main>
         <div class="title"><h1>W&#129299RD NERD</h1></div>
-        <div class="letterTiles">
-
-        </div>
-        <div class="wordInput Input Outcome">
-            <form method="post">
+        <section class="letterTiles">
+            <div class="tileRow" id="tileRow1"></div>
+            <div class="tileRow" id="tileRow2"></div>
+            <div class="tileRow" id="tileRow3"></div>
+            <div class="tileRow" id="tileRow4"></div>
+            <div class="tileRow" id="tileRow5"></div>
+            <div class="tileRow" id="tileRow6"></div>
+        </section>
+        <section class="wordInput Input Outcome">
+            <form>
                 <input type="text" placeholder="Guess 5 Letter Word ..." class="textInput" id="wordInput" value="" maxlength="5">
-                <input type="submit" value="Enter" class="enter submitFormButton" disabled id="enterButton">
-                <input type="submit" value="Retry" class="retry retryButton">
+                <input type="submit" value="Enter" class="submitFormButton" disabled id="enterButton">
+                <input type="submit" value="Retry" class="retryButton">
             </form>
-        </div>
+        </section>
         <section class="keypadContainer">
             <div class="keypadRow">
                 <button class="keypadKey" data-letter="q">Q</button>

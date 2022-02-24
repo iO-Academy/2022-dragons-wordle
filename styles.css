@@ -28,14 +28,13 @@ main {
 }
 
 .letterTiles {
-    height: 250px;
-    background-color: blue;
-    width: 90%;
+    height: 480px;
+    width: 80%;
     margin: 5px;
 }
 
 nav {
-    padding: 2rem 3rem 0 2rem;
+    padding: 5px;
     display: flex;
     justify-content: flex-end;
 }
@@ -64,6 +63,7 @@ nav {
 .title h1 {
     font-family: var(--generalFont);
     font-size: 4rem;
+    margin: 0;
 }
 
 
@@ -187,8 +187,9 @@ nav {
 
 .wordInput {
     height: 70px;
-    width: 70%;
-    margin: 0 auto 25px auto;
+    width: 80%;
+    max-width: 800px;
+    margin: 0 auto 15px auto;
 }
 
 form {
@@ -205,11 +206,19 @@ form {
     border-color: #C6C6C6;
     background-color: #ffffff;
     margin-right: 0;
+    height: 100%;
 }
 /* this styles the placeholder text */
 .textInput::placeholder {
     color: #000000;
     text-align: center;
+}
+
+.retryInput {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+
 }
 
 .submitFormButton {
@@ -237,17 +246,38 @@ form {
     font-size: 3rem;
     text-align: center;
     display: flex;
+
 }
 
-/* toggling this class removes the enter button*/
-/*.enter{
-    display: none;
+.tileRow {
+    display: flex;
+    flex-direction: row;
+    justify-content: space-evenly;
+    height: 80px;
+    width: 100%;
 }
 
-.retry {
-    display: block;
+.tile {
+    display: flex;
+    align-items: center;
+    color: #000000;
+    height: 70px;
+    width: 70px;
+    margin: 5px;
+    font-size: 3rem;
+    font-family: var(--letterFont);
+    min-width: 50px;
+    padding: 2px;
+    border: solid;
+    border-radius: 10px;
+    border-color: var(--lightGrey);
 }
-*/
+
+.tile p {
+    margin: 0 auto;
+}
+
+
 @media only screen and (min-width: 800px){
     .title h1 {
         font-size: 6rem;
@@ -276,6 +306,16 @@ form {
 
     .submitFormButton {
         font-size: 3rem;
+    }
+    .tileRow {
+        height: 60px;
+    }
+    .tile {
+        height: 50px;
+        width: 50px;
+    }
+    .letterTiles {
+        height: 360px;
     }
 }
 
@@ -315,6 +355,9 @@ form {
     }
     .delete {
         min-width: 50px;
+    }
+    .wordInput {
+        height: 60px;
     }
 }
 
