@@ -8,6 +8,7 @@ let randomWord
 let matchResult
 let counter = 0
 wordInput.value = ""
+document.getElementById("enterButton").setAttribute('disabled', '')
 
 function getRandom(array) {
     return Math.floor(Math.random() * parseInt(array.length))
@@ -156,6 +157,7 @@ document.getElementById("enterButton").addEventListener('click', (e) => {
     }
     addTileRow(guessedWord)
     wordInput.value = ""
+    document.getElementById("enterButton").setAttribute('disabled', '')
 })
 
 wordInput.addEventListener('input', (e) => {
