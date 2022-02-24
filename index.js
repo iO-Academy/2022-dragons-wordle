@@ -86,6 +86,10 @@ function addTileRow(guessedWord) {
         pTag.innerText = letter.toUpperCase()
         divTag.appendChild(pTag)
         document.getElementById(rowId).appendChild(divTag)
+        let letterSelector = "[data-letter=" + letter + "]"
+        let keypadKey = document.querySelector(letterSelector)
+        let keypadClass = 'keypadKey ' + resultClass
+        keypadKey.setAttribute('class', keypadClass)
     })
 }
 
