@@ -7,6 +7,8 @@ let guessedWord
 let randomWord
 let matchResult
 let counter = 0
+wordInput.value = ""
+document.getElementById("enterButton").setAttribute('disabled', '')
 
 function getRandom(array) {
     return Math.floor(Math.random() * parseInt(array.length))
@@ -39,17 +41,63 @@ function outcomeOutput(bool, inputWord) {
     document.querySelector('form').style.flexDirection = 'row-reverse'
 }
 
+function checkMatches(answer, userWord) {
+    let checkAnswer = answer.split("");
+    let checkUserWord = userWord.split("");
+    let firstPass = '';
+    let secondPass = '';
+    checkUserWord.forEach((value, index) => {
+        if (value === checkAnswer[index]) {
+            checkAnswer[index] = '*';
+            firstPass += '*';
+        } else {
+            firstPass += value;
+        }
+    })
+    let firstPassArray = firstPass.split('');
+    firstPassArray.forEach((value) => {
+        if (checkAnswer.includes(value)) {
+            if (value !== '*') {
+                secondPass += 'rightLetter,';
+                let replaceIndex = checkAnswer.findIndex((letter) => letter === value)
+                checkAnswer[replaceIndex] = '/'
+            } else {
+                secondPass += 'correct,';
+            }
+        } else {
+            secondPass += 'wrongLetter,';
+        }
+    })
+
+    let output = secondPass.split(",");
+    output.pop();
+    return output;
+}
+
 function addTileRow(guessedWord) {
     let guessedWordTile = guessedWord
     let rowId = "tileRow" + counter
     let letterArray = guessedWordTile.split("")
-    letterArray.forEach((letter) => {
+    let classArray = checkMatches(randomWord, guessedWord)
+    letterArray.forEach((letter, index) => {
         let divTag = document.createElement('div')
-        divTag.setAttribute('class', 'tile')
+        let resultClass = classArray[index]
+        divTag.classList.add('tile', resultClass)
         let pTag = document.createElement('p')
         pTag.innerText = letter.toUpperCase()
         divTag.appendChild(pTag)
         document.getElementById(rowId).appendChild(divTag)
+        let letterSelector = "[data-letter=" + letter + "]"
+        let keypadKey = document.querySelector(letterSelector)
+        let classKeyArray = keypadKey.className.split(' ')
+        if ( !classKeyArray.includes('correct')) {
+            let keypadClass = 'keypadKey ' + resultClass
+            keypadKey.setAttribute('class', keypadClass)
+        }
+        if ( classKeyArray.includes('rightLetter') && resultClass === 'wrongLetter') {
+            keypadKey.setAttribute('class', 'keypadKey rightLetter')
+        }
+
     })
 }
 
@@ -93,10 +141,13 @@ allKeys.forEach((key) => {
         if (key.dataset.letter === 'delete') {
             wordInput.value = wordInput.value.substring(0, wordInput.value.length - 1)
         } else {
-            wordInput.value += key.dataset.letter.toLowerCase()
+            if (wordInput.value.length < 5) {
+                wordInput.value += key.dataset.letter.toLowerCase()
+            }
         }
         enableEnterButton(wordInput.value.length)
     })
+
 })
 
 document.getElementById("enterButton").addEventListener('click', (e) => {
@@ -105,25 +156,23 @@ document.getElementById("enterButton").addEventListener('click', (e) => {
     counter++
     if (counter === 6) {
         buttonSwitchToRetry()
-        if (guessedWord === randomWord) {
-            matchResult = true
-        } else {
+        if (guessedWord !== randomWord) {
             matchResult = false
+            outcomeOutput(matchResult, guessedWord)
         }
-        outcomeOutput(matchResult, guessedWord)
     }
     if (guessedWord === randomWord) {
         matchResult = true
         outcomeOutput(matchResult, guessedWord)
     }
-
-
-
     addTileRow(guessedWord)
+    wordInput.value = ""
+    document.getElementById("enterButton").setAttribute('disabled', '')
 })
 
 wordInput.addEventListener('input', (e) => {
     let strippedInput = wordInput.value.replace(/[\W_]+/g,"")
     wordInput.value = strippedInput
     enableEnterButton(wordInput.value.length)
+
 })
