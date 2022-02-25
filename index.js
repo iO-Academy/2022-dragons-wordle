@@ -171,7 +171,7 @@ document.getElementById("enterButton").addEventListener('click', (e) => {
 })
 
 wordInput.addEventListener('input', (e) => {
-    let strippedInput = wordInput.value.replace(/[\W_]+/g,"")
+    let strippedInput = wordInput.value.replace(/[^A-Za-z]/g,"")
     wordInput.value = strippedInput
     enableEnterButton(wordInput.value.length)
 
