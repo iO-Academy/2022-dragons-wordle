@@ -26,9 +26,15 @@ Good luck!
 ## Authors
 
 Ethan Garrett - [@EthanGarrett](https://github.com/ethan-garrett)
+
 Gabriel Rowan - [@GabrielRowan](https://github.com/gabrielrowan)
+
 Grace Palacz - [@Grace-P-03](https://github.com/grace-p-03)
+
 Jordan Addis - [@J-Add](https://github.com/j-add)
+
 Luke Grayland - [@Luke-Grayland](https://github.com/luke-grayland)
+
 Marcus Drury - [@Marcus12934](https://github.com/Marcus12934)
+
 Sami Shanagher - [@Parsley-Afroman](https://github.com/Parsley-Afroman)
